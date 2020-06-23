@@ -40,3 +40,48 @@ Processing by PostsController#show as HTML
   [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
   Rendered posts/show.html.erb within layouts/application (0.4ms)
 Completed 200 OK in 27ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Title Goes Here"], ["description", "Desc goes here..."], ["created_at", "2020-06-23 17:33:06.709350"], ["updated_at", "2020-06-23 17:33:06.709350"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-23 17:33:55.227410"], ["updated_at", "2020-06-23 17:33:55.227410"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/posts/new" for ::1 at 2020-06-23 13:36:00 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 458ms (Views: 432.4ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/posts" for ::1 at 2020-06-23 13:36:09 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"l9Exea78e7OuB5/hpdZmGFYlJSLxZriXXIqd38NdPtOSRL5dUiuDcGdqwyGbTZL/Rh2r91sE7GuIIICfrw1b+g==", "title"=>"Test Post", "description"=>"Test Description\r\n", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Test Post"], ["description", "Test Description\r\n"], ["created_at", "2020-06-23 17:36:09.300767"], ["updated_at", "2020-06-23 17:36:09.300767"]]
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 65ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/posts/new" for ::1 at 2020-06-23 13:36:53 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 25ms (Views: 23.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2020-06-23 13:36:58 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RK2OUtNUwyxxAUKpNPiMdX/Wise6YQQLdyADBcVTmAdBOAF2L4M777hsHmkKY3iSb+4EEhADUPejih5FqQP9Lg==", "title"=>"Test", "description"=>"Test", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Test"], ["description", "Test"], ["created_at", "2020-06-23 17:36:58.953207"], ["updated_at", "2020-06-23 17:36:58.953207"]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 70ms (ActiveRecord: 5.0ms)
+
+
