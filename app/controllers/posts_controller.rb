@@ -11,5 +11,12 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  # add create method here
+  def create
+    @post = Post.new #create a new post
+    @post.title = params[:title] #add a title 
+    @post.description = params[:description] #add descrip
+    @post.save #save record
+    redirect_to post_path(@post) 
+  end
+
 end
